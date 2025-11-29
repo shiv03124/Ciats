@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechEd Pro | Empowering Future Innovators</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #4cc9f0;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary) !important;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 120px 0 100px;
+            position: relative;
+            overflow: hidden;
+             height: 100vh; 
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: url('/homesliderimages/background1.png.jpg') center/cover;
+            opacity: 0.1;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .course-card, .service-card {
+            transition: transform 0.3s ease;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            height: 100%;
+        }
+        
+        .course-card:hover, .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+        }
+        
+        .testimonial-card {
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .contact-section {
+            background: linear-gradient(rgba(67, 97, 238, 0.05), rgba(67, 97, 238, 0.05)), url('./homesliderimages/contactBackgroundImage.png.jpg') center/cover;
+        }
+        
+        .footer {
+            background: var(--dark);
+            color: white;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .btn-outline-primary {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            font-weight: 500;
+            padding: 10px 28px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-primary:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Founder image styling */
+        .founder-img {
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+       
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glowPulse {
+    0% { text-shadow: 0 0 10px rgba(255,215,0,0.3); }
+    50% { text-shadow: 0 0 20px rgba(255,215,0,0.7); }
+    100% { text-shadow: 0 0 10px rgba(255,215,0,0.3); }
+}
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="./8.png" alt="TechEd Pro Logo" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#why-us">Why Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+
+            <div class="col-lg-6">
+    <h1 class="display-4 fw-bold mb-4" style="color: white;">
+        Welcome to 
+        <span style="
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+            text-shadow: 0 0 10px rgba(255,215,0,0.3);
+            padding: 0 5px;
+            font-family:   system-ui-apple-system;
+        ">CIATS</span> 
+        – Center of Innovation & Advanced Technical Skills
+    </h1>
+    <p class="lead mb-4" style="
+        color: white;
+        animation: fadeInUp 1.5s ease-out;
+        opacity: 0;
+        animation-fill-mode: forwards;
+    ">Empowering the Future of Electric Mobility Through Skill Development & Practical Learning.</p>
+    
+</div>
+
+            <!-- IMAGE SLIDER START -->
+            <div class="col-lg-6 text-center">
+
+                <div id="heroImageSlider" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
+
+                    <div class="carousel-inner">
+
+                        <div class="carousel-item active">
+                            <img src="./Gemini_Generated_Image_cfnenacfnenacfne.png" class="d-block w-100 img-fluid rounded shadow" alt="Slide 1">
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="/homesliderimages/img1.jpg" class="d-block w-100 img-fluid rounded shadow" alt="Slide 2">
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="/homesliderimages/img2.jpg" class="d-block w-100 img-fluid rounded shadow" alt="Slide 3">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/homesliderimages/img3.png.jpg" class="d-block w-100 img-fluid rounded shadow" alt="Slide 3">
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="./homesliderimages/founderimage.jpg" style="height: 600px; width:700px" alt="Founder" class="img-fluid founder-img shadow">
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="mb-3">Our Mission</h3>
+                    <p class="mb-4">To empower and develop highly skilled EV engineering talent by providing practical, application-based training and advanced laboratory solutions that enable students to gain real industry exposure, hands-on experience, and job-ready competencies essential for the electric mobility revolution.</p>
+                    
+                    <h4 class="mb-3">Meet Our Founder</h4>
+                    <p class="mb-4"> Mr. Pavan Bhavsar is a highly accomplished Electrical Engineer with over 5 years of hands-on industry experience in the electrical and electric mobility domain. As a skilled EV Trainer and Co-Founder & Partner at CIATS, he is dedicated to advancing the next generation of EV engineers through practical learning and industry-aligned training programs. He also leads the Retro EV Certification Program, a specialized course focused on converting conventional IC engine vehicles into fully functional electric vehicles. Through this program, he provides learners with in-depth knowledge of retrofitting standards, motor and battery integration, safety compliance, testing procedures, and real-world retro conversion practices—preparing students for rapidly growing opportunities in the EV retrofit industry. </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="services" class="py-5">
+    <div class="container">
+        <h2 class="section-title text-center">Our Services</h2>
+        <p class="text-center mb-5">Empowering Institutions with Practical EV Education & Infrastructure</p>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card service-card h-100 fade-in shadow-lg">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h5 class="card-title">EV Workshops & Training</h5>
+                        <p class="card-text">
+                            Hands-on practical workshops on 2-Wheeler and 3-Wheeler Electric Vehicles, enabling students to understand EV architecture, components, subsystems, and real-time operational techniques directly from industry experts.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card service-card h-100 fade-in shadow-lg">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h5 class="card-title">Electric Vehicle Lab Setup</h5>
+                        <p class="card-text">
+                            Turnkey EV practical lab installation for engineering colleges with operational EV components, simulation test benches, wiring & diagnostics panels, and experiment modules for real industrial learning.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card service-card h-100 fade-in shadow-lg">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h5 class="card-title">Technical Support & Assistance</h5>
+                        <p class="card-text">
+                            Continuous technical guidance, faculty training, maintenance assistance, and operational support ensuring effective usage of EV labs, tools, and training systems throughout the year.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+   <!-- Why Choose Us Section -->
+<section id="why-us" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title text-center">Why Choose CIATS?</h2>
+        
+        <div class="row g-4 mt-4">
+    <div class="col-md-6 col-lg-3 text-center fade-in shadow mb-4 px-2">
+        <div class="feature-icon">
+            <i class="fas fa-users-cog"></i>
+        </div>
+        <h5>Industry-Expert Trainers</h5>
+        <p>Training delivered by experienced EV professionals with strong hands-on knowledge of W and 4W systems, batteries, motors, controllers, and powertrains.</p>
+    </div>
+    
+    <div class="col-md-6 col-lg-3 text-center fade-in shadow mb-4 px-2">
+        <div class="feature-icon">
+            <i class="fas fa-charging-station"></i>
+        </div>
+        <h5>Practical Hands-on Learning</h5>
+        <p>Live operation and testing of real EV components with simulation-based experiments to enhance industrial skill development and problem-solving abilities.</p>
+    </div>
+    
+    <div class="col-md-6 col-lg-3 text-center fade-in shadow mb-4 px-2">
+        <div class="feature-icon">
+            <i class="fas fa-screwdriver-wrench"></i>
+        </div>
+        <h5>Turnkey EV Lab Solutions</h5>
+        <p>End-to-end Electric Vehicle Lab setup including installation, experiment modules, diagnostics tools, wiring demonstration panels, and academic integration.</p>
+    </div>
+    
+    <div class="col-md-6 col-lg-3 text-center fade-in shadow mb-4 px-2">
+        <div class="feature-icon">
+            <i class="fas fa-headset"></i>
+        </div>
+        <h5>Technical Support & Assistance</h5>
+        <p>Dedicated technical support, maintenance assistance, and faculty training to ensure effective and long-term usage of the EV lab facilities.</p>
+    </div>
+</div>
+
+    </div>
+</section>
+
+
+   <!-- Testimonials Section -->
+<section id="testimonials" class="py-5">
+    <div class="container">
+        <h2 class="section-title text-center">What Our Students Say</h2>
+
+        <!-- Carousel Wrapper -->
+        <div id="testimonialCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
+            
+            <div class="carousel-inner">
+
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="row g-4">
+                        
+                        <!-- Testimonial 1 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card testimonial-card h-100 fade-in">
+                                <div class="card-body">
+                                    <div class="d-flex mb-3">
+                                        <img src="https://picsum.photos/80/80?random=9" class="rounded-circle me-3" width="60">
+                                        <div>
+                                            <h5 class="mb-0">Rahul Sharma</h5>
+                                            <p class="text-muted mb-0">Electrical Engineering Student</p>
+                                        </div>
+                                    </div>
+                                    <p>"The EV workshop was an amazing experience. I gained hands-on exposure and confidence in EV systems."</p>
+                                    <div class="text-warning">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card testimonial-card h-100 fade-in">
+                                <div class="card-body">
+                                    <div class="d-flex mb-3">
+                                        <img src="https://picsum.photos/80/80?random=10" class="rounded-circle me-3" width="60">
+                                        <div>
+                                            <h5 class="mb-0">Sneha Patel</h5>
+                                            <p class="text-muted mb-0">Mechanical Engineering Student</p>
+                                        </div>
+                                    </div>
+                                    <p>"CIATS provides the best EV practical learning. The trainers were supportive and knowledgeable."</p>
+                                    <div class="text-warning">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card testimonial-card h-100 fade-in">
+                                <div class="card-body">
+                                    <div class="d-flex mb-3">
+                                        <img src="https://picsum.photos/80/80?random=11" class="rounded-circle me-3" width="60">
+                                        <div>
+                                            <h5 class="mb-0">Prof. A. K. Verma</h5>
+                                            <p class="text-muted mb-0">HOD, Electrical Department</p>
+                                        </div>
+                                    </div>
+                                    <p>"The EV lab setup and expert guidance by CIATS have greatly enhanced our students' skills."</p>
+                                    <div class="text-warning">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="row g-4">
+
+                        <!-- Testimonial 4 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card testimonial-card h-100 fade-in">
+                                <div class="card-body">
+                                    <div class="d-flex mb-3">
+                                        <img src="https://picsum.photos/80/80?random=12" class="rounded-circle me-3" width="60">
+                                        <div>
+                                            <h5 class="mb-0">Kiran Deshmukh</h5>
+                                            <p class="text-muted mb-0">Diploma Student</p>
+                                        </div>
+                                    </div>
+                                    <p>"The practical EV modules helped me understand wiring, troubleshooting, and BMS operation easily."</p>
+                                    <div class="text-warning">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 5 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card testimonial-card h-100 fade-in">
+                                <div class="card-body">
+                                    <div class="d-flex mb-3">
+                                        <img src="https://picsum.photos/80/80?random=13" class="rounded-circle me-3" width="60">
+                                        <div>
+                                            <h5 class="mb-0">Aditi Kulkarni</h5>
+                                            <p class="text-muted mb-0">E&TC Engineering Student</p>
+                                        </div>
+                                    </div>
+                                    <p>"Their training helped me understand EV controllers, sensors, and CAN communication in-depth."</p>
+                                    <div class="text-warning">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 6 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card testimonial-card h-100 fade-in">
+                                <div class="card-body">
+                                    <div class="d-flex mb-3">
+                                        <img src="https://picsum.photos/80/80?random=14" class="rounded-circle me-3" width="60">
+                                        <div>
+                                            <h5 class="mb-0">Prof. Sudhir Patil</h5>
+                                            <p class="text-muted mb-0">Training Coordinator</p>
+                                        </div>
+                                    </div>
+                                    <p>"Their EV lab setup and faculty training program helped us upgrade our curriculum effectively."</p>
+                                    <div class="text-warning">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                    <div class="row g-4">
+
+                        <!-- Testimonial 7 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card testimonial-card h-100 fade-in">
+                                <div class="card-body">
+                                    <div class="d-flex mb-3">
+                                        <img src="https://picsum.photos/80/80?random=15" class="rounded-circle me-3" width="60">
+                                        <div>
+                                            <h5 class="mb-0">Vikas Jadhav</h5>
+                                            <p class="text-muted mb-0">Automobile Engineering Student</p>
+                                        </div>
+                                    </div>
+                                    <p>"I learned EV motor testing, load analysis, and controller tuning with great clarity."</p>
+                                    <div class="text-warning">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 8 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card testimonial-card h-100 fade-in">
+                                <div class="card-body">
+                                    <div class="d-flex mb-3">
+                                        <img src="https://picsum.photos/80/80?random=16" class="rounded-circle me-3" width="60">
+                                        <div>
+                                            <h5 class="mb-0">Sana Sheikh</h5>
+                                            <p class="text-muted mb-0">B.Sc. Physics Student</p>
+                                        </div>
+                                    </div>
+                                    <p>"The EV battery modules and safety demonstrations were the most valuable part of the training for me."</p>
+                                    <div class="text-warning">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card testimonial-card h-100 fade-in">
+                                <div class="card-body">
+                                    <div class="d-flex mb-3">
+                                        <img src="https://picsum.photos/80/80?random=15" class="rounded-circle me-3" width="60">
+                                        <div>
+                                            <h5 class="mb-0">Shivkumar Patil</h5>
+                                            <p class="text-muted mb-0">Automobile Engineering Student</p>
+                                        </div>
+                                    </div>
+                                    <p>"I learned EV motor development and maintainace, and controller tuning with great clarity."</p>
+                                    <div class="text-warning">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Carousel Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Contact Section -->
+        <!-- Contact Section -->
+    <section id="contact" class="contact-section py-5">
+        <div class="container">
+            <!-- <h2 class="section-title text-center text-white">Get In Touch</h2> -->
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card shadow fade-in">
+                        <div class="card-body p-5 text-center">
+                            <h4 class="mb-4">Contact Information</h4>
+                            <p class="mb-4">Reach out to us for any inquiries about our courses or lab setup services</p>
+                            
+                            <div class="row">
+                                <div class="col-md-4 mb-4">
+                                    <div class="feature-icon mx-auto mb-3" style="width: 70px; height: 70px;">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <h5>Our Location</h5>
+                                    <p>Pune, Maharastra</p>
+                                </div>
+                                
+                                <div class="col-md-4 mb-4">
+                                    <div class="feature-icon mx-auto mb-3" style="width: 70px; height: 70px;">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <h5>Phone Number</h5>
+                                    <span> +91 9270759005</span><br>
+                                    <span>+91 7020456281</span>
+                                </div>
+                                
+                                <div class="col-md-4 mb-4">
+                                    <div class="feature-icon mx-auto mb-3" style="width: 70px; height: 70px;">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <h5>Email Address</h5>
+                                    <p>info@techedpro.com<br>support@techedpro.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4">
+                                <h5 class="mb-3">Business Hours</h5>
+                                <p class="mb-1">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                                <p class="mb-0">Saturday: 10:00 AM - 4:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <h4 class="mb-3">CIATS</h4>
+                    <p class="mb-4">Empowering future innovators through quality technical education and state-of-the-art lab solutions.</p>
+                    <!-- <div class="d-flex">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div> -->
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#home" class="text-white text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="#about" class="text-white text-decoration-none">About</a></li>
+                        <li class="mb-2"><a href="#courses" class="text-white text-decoration-none">Courses</a></li>
+                        <li class="mb-2"><a href="#services" class="text-white text-decoration-none">Services</a></li>
+                        <li class="mb-2"><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="mb-3">Our Services</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Technical Support & Assistance</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Electric Vehicle Lab Setup</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">EV Workshops & Training</a></li>
+                    </ul>
+                </div>
+                
+                <!-- <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-3">Newsletter</h5>
+                    <p class="mb-3">Subscribe to our newsletter for the latest updates and course offerings.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your email">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                </div> -->
+            </div>
+            
+            <hr class="my-4">
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">© 2023 CIATS Pro. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white text-decoration-none me-3">Privacy Policy</a>
+                    <a href="#" class="text-white text-decoration-none">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS for animations -->
+    <script>
+        // Fade in animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInOnScroll = function() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('visible');
+                    }
+                });
+            };
+            
+            // Check on load
+            fadeInOnScroll();
+            
+            // Check on scroll
+            window.addEventListener('scroll', fadeInOnScroll);
+        });
+    </script>
+</body>
+</html>
